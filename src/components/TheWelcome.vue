@@ -24,9 +24,10 @@ function guestAccess(){
 </script>
 
 <template>
+  <div id="login">
+
   
-  <div class="wrapper">
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="wrapper">
       <h1 class="text-3xl font-bold underline m-5 text-purple-700">Metrolympiades</h1>
       <h3 class="text-2xl font-bold m-5 text-center text-gray-700">Login</h3>
 
@@ -45,22 +46,12 @@ function guestAccess(){
         <button @click="guestAccess()" class="bg-purple-500 border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guest Access !</button>
       </div>
     </div>
-   
 </div>
 </template>
 <style scoped>
-  .wrapper{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  #login{
     height: 100vh;
-    justify-content: center;
-  }
-  .child{
-    width: 80%;
-    margin: auto;
-  }
-  button{
-    max-width: fit-content;
+    padding: auto;
+    display: flex;
   }
 </style>

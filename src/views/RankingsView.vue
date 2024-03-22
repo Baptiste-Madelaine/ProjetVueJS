@@ -4,7 +4,7 @@ import NavBar from '@/components/NavBar.vue';
 </script>
 <template>
     <NavBar />
-    <div class="flex flex-col">
+    <div class="flex flex-col" id="wrapper">
         <TeamLabel>
             1. SpaceX 15pts
         </TeamLabel>
@@ -17,3 +17,9 @@ import NavBar from '@/components/NavBar.vue';
     </div>
     
 </template>
+<style>
+    #wrapper{
+        max-width: fit-content;
+        margin:auto;
+    }
+</style>
