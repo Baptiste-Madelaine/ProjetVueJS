@@ -1,9 +1,12 @@
 import useSupabase from "./../composables/supabase.js";
 
 export class Match {
-    name;
-    members;
-    leader;
+    team1;
+    team2;
+    sport;
+    time;
+    team1_score;
+    team2_score;
 }
 
 
@@ -34,3 +37,35 @@ export async function getMatch($id) {
 }
 
 
+export async function getPoints(){
+    const { supabase } = useSupabase();
+    const { data, error } = await supabase.from('teams').select('*');
+    const data2 = await index()
+    let teamsWithTotalPoints
+
+    if (error) {
+        console.error('Erreur lors de la récupération des équipes:', error.message);
+    } else {
+        const teamsPromises = data.map(async team => {
+            const totalPoints = calculateTotalPoints(team, data2);
+            return { ...team, totalPoints };
+        });
+        teamsWithTotalPoints = await Promise.all(teamsPromises);
+    }
+    return await teamsWithTotalPoints;
+}
+
+function calculateTotalPoints(team, data) {
+    let totalPoints = 0;
+    
+
+    data.forEach(match => {
+        if (match.team1 === team.id) {
+        totalPoints += match.team1_score || 0;
+        } else if (match.team2 === team.id) {
+        totalPoints += match.team2_score || 0;
+        }
+    });
+
+  return totalPoints;
+}
