@@ -1,8 +1,10 @@
 <script setup>
 //import TheWelcome from '../components/TheWelcome.vue'
+import NavBar from '@/components/NavBar.vue';
 </script>
 
 <template>
+  <NavBar />
   <main class="bg-slate-500">
     <h1>
       Match Creation
