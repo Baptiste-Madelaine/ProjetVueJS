@@ -32,14 +32,16 @@ export default function useMatch() {
 
     async function get(id) {
         const { supabase } = useSupabase();
-        const { data, error } = await supabase.from("matchs").select().eq("id", id).first();
+        const { data, error } = await supabase.from("matchs").select().eq("id", id);
 
         if (error) {
             console.error(`Erreur lors de la récupération du match ${id} : ${message.error}`);
             return;
         }
 
-        return data;
+        return (data.length > 0)
+            ? data[0]
+            : null;
     }
 
 

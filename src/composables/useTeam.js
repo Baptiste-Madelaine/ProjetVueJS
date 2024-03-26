@@ -36,7 +36,9 @@ export default function useTeam() {
             return;
         }
 
-        return data;
+        return (data.length > 0)
+            ? data[0]
+            : null;
     }
 
     return {store, index, get}
