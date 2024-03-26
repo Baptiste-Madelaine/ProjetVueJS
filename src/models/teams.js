@@ -1,12 +1,9 @@
 import useSupabase from "./../composables/supabase.js";
 
 export class Team {
-    team1;
-    team2;
-    sport;
-    time;
-    team1_score;
-    team2_score;
+    name;
+    members;
+    leader;
 }
 
 export async function index() {
