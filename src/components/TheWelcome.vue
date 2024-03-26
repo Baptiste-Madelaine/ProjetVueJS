@@ -16,6 +16,11 @@ const passwordInput = ref("");
 function seConnecter(){
 
 }
+
+function sinscrire(){
+
+  route.push({name: 'signup'})
+}
 function guestAccess(){
   id.value = "";
   name.value = "";
@@ -38,8 +43,8 @@ function guestAccess(){
       <input id="password" type="password" v-model="passwordInput" placeholder="Password" class="mb-6 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
       
       <div class="flex items-center justify-between">
-        <button @click="seConnecter()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Get me In !</button>
-        <a href="" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Create your Account !</a>
+        <button @click="sinscrire()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Get me In !</button>
+        <a href="/signup" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Create your Account !</a>
       </div>
       <br>
       <div class="flex items-center justify-between">
