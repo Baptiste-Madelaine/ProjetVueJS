@@ -2,7 +2,7 @@
     import { ref } from "vue"
     import { signIn, signUp } from '../models/users'
     import { useRouter } from 'vue-router';
-    import { useUserStore } from '../stores/user'
+    import { useUserStore } from '@/stores/user'
     import { storeToRefs } from 'pinia';
 
 
@@ -27,6 +27,7 @@
             }else{
                 id.value = data.user.id;
                 name.value = data.user.email;
+                console.log(error);
                 const {errorIn, dataIn} = await(signIn(email.value,password.value));
                 route.push({name: 'settings'})
                 
