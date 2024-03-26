@@ -1,7 +1,14 @@
 <script setup>
     import { ref } from "vue"
-    import { signUp } from '../models/users'
+    import { signIn, signUp } from '../models/users'
     import { useRouter } from 'vue-router';
+    import { useUserStore } from '../stores/user'
+    import { storeToRefs } from 'pinia';
+
+
+    const userStore = useUserStore()
+    const { id, name} = storeToRefs(userStore);
+    const { isLogged } = userStore;
 
     const route = useRouter()
 
@@ -12,14 +19,17 @@
 
     async function signUpNewUser(){
         if(password.value == confirmPassword.value){
-            const error = await(signUp(email.value,password.value));
+            const { error, data } = await(signUp(email.value,password.value));
             console.log("test");
             if(error != null){
                 isError.value = true;
                 console.log(error);
             }else{
-                route.push({name: 'home'})
-                console.log(error);
+                id.value = data.user.id;
+                name.value = data.user.email;
+                const {errorIn, dataIn} = await(signIn(email.value,password.value));
+                route.push({name: 'settings'})
+                
             }
         }else{
             isError.value = true;

@@ -11,15 +11,15 @@ export async function signUp(email, password) {
         email: email,
         password: password
     });
-    return error;
+    return { error, data };
 }
 
 export async function signIn(email, password) {
     const { supabase } = useSupabase();
 
-    const { data, error } = await supabase.auth.signIn({
+    const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password
     });
-    return error;
+    return {error, data};
 }
