@@ -29,7 +29,7 @@ export default function useTeam() {
 
     async function get(id) {
         const { supabase } = useSupabase();
-        const { data, error } = await supabase.from("teams").select().eq("id", id).first();
+        const { data, error } = await supabase.from("teams").select().eq("id", id);
 
         if (error) {
             console.error("Erreur lors de la récupération de l'équipe " + id + " : " + error.message);
