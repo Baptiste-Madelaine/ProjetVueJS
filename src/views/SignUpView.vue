@@ -7,8 +7,11 @@
     const confirmPassword = ref()
 
     async function signUpNewUser(){
-        signUp(email,password).value
+        if(password == confirmPassword){
+            signUp(email,password).value
+        }
     }
+
 </script>
 <template>
     Email:
