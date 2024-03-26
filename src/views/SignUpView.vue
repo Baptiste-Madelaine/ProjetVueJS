@@ -1,6 +1,14 @@
 <script setup>
     import { ref } from "vue"
+    import { signUp } from '../models/users'
 
+    const email = ref()
+    const password = ref()
+    const confirmPassword = ref()
+
+    async function signUpNewUser(){
+        signUp(email,password).value
+    }
 </script>
 <template>
     Email:
