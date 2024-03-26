@@ -4,7 +4,7 @@ import Match from "@/models/match.js";
 
 
 export default function useMatch() {
-    async function store(match) {
+    async function matchStore(match) {
         if (!match instanceof Match) {
             return;
         }
@@ -17,7 +17,7 @@ export default function useMatch() {
         }
     }
 
-    async function index() {
+    async function matchIndex() {
         const { supabase } = useSupabase();
 
         const { data, error } = await supabase.from("matchs").select();
@@ -30,7 +30,7 @@ export default function useMatch() {
         return data;
     }
 
-    async function get(id) {
+    async function matchGet(id) {
         const { supabase } = useSupabase();
         const { data, error } = await supabase.from("matchs").select().eq("id", id);
 
@@ -45,10 +45,10 @@ export default function useMatch() {
     }
 
 
-    async function getPoints() {
+    async function matchGetPoints() {
         const { supabase } = useSupabase();
         const { data, error } = await supabase.from('teams').select('*');
-        const data2 = await index()
+        const data2 = await matchIndex()
         let teamsWithTotalPoints
 
         if (error) {
@@ -78,5 +78,5 @@ export default function useMatch() {
         return totalPoints;
     }
 
-    return { store, index, get, getPoints }
+    return { matchStore, matchIndex, matchGet, matchGetPoints }
 }

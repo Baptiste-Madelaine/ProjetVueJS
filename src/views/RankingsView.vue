@@ -6,11 +6,11 @@
 
     const map = ref([])
 
-    const { index, getPoints } = useMatch();
+    const { matchGetPoints } = useMatch();
 
     onMounted(async () => {
         try {
-            const data = await getPoints()
+            const data = await matchGetPoints()
             data.sort((a,b) => b.totalPoints - a.totalPoints)
 
             data.forEach((elem, index) => {

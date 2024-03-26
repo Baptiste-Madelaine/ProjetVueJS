@@ -2,7 +2,7 @@ import useSupabase from "./supabase.js";
 import Team from "@/models/team.js"
 
 export default function useTeam() {
-    async function store(team) {
+    async function teamStore(team) {
         if (!team instanceof Team) {
             return;
         }
@@ -15,7 +15,7 @@ export default function useTeam() {
         }
     }
 
-    async function index() {
+    async function teamIndex() {
         const { supabase } = useSupabase();
         const { data, error } = await supabase.from("teams").select();
 
@@ -27,7 +27,7 @@ export default function useTeam() {
         return data;
     }
 
-    async function get(id) {
+    async function teamGet(id) {
         const { supabase } = useSupabase();
         const { data, error } = await supabase.from("teams").select().eq("id", id);
 
@@ -41,5 +41,5 @@ export default function useTeam() {
             : null;
     }
 
-    return {store, index, get}
+    return { teamStore, teamIndex, teamGet}
 }
