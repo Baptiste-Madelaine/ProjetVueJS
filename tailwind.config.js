@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-=======
 import typography from '@tailwindcss/typography';
 import forms from '@tailwindcss/forms';
 import aspectRatio from '@tailwindcss/aspect-ratio';
@@ -28,4 +18,3 @@ export default {
   ],
 }
 
->>>>>>> dev

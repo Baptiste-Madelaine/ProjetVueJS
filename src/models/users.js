@@ -11,6 +11,7 @@ export async function signUp(email, password) {
         email: email,
         password: password
     });
+    return error;
 }
 
 export async function signIn(email, password) {
@@ -20,4 +21,5 @@ export async function signIn(email, password) {
         email: email,
         password: password
     });
+    return error;
 }
