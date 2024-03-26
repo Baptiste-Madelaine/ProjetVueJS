@@ -26,7 +26,7 @@ export async function store(team) {
 
 export async function getTeam($id) {
     const { supabase } = useSupabase();
-    const { data, error } = await supabase.from("teams").select().eq("id", $id).first();
+    const { data, error } = await supabase.from("teams").select().eq("id", $id);//first() ??
 
     return data;
 }
