@@ -21,7 +21,7 @@ export default function useUser() {
     async function signIn(email, password) {
         const { supabase } = useSupabase();
 
-        const { error } = await supabase.auth.signIn({
+        const { error } = await supabase.auth.signInWithPassword({
             email: email,
             password: password
         });
