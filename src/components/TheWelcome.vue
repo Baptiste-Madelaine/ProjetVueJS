@@ -45,8 +45,6 @@ function guestAccess(){
 
 <template>
   <div id="login">
-
-    
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="wrapper">
       <h1 class="text-3xl font-bold underline m-5 text-purple-700">Metrolympiades</h1>
       <h3 class="text-2xl font-bold m-5 text-center text-gray-700">Login</h3>
@@ -64,7 +62,7 @@ function guestAccess(){
         <a href="/signup" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Create your Account !</a>
       </div>
       <br>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-center">
         <button @click="guestAccess()" class="bg-purple-500 border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guest Access !</button>
       </div>
     </div>
