@@ -1,10 +1,12 @@
 <script setup>
     import TeamLabel from '@/components/TeamLabel.vue';
     import NavBar from '@/components/NavBar.vue';
-    import { getPoints, Match, store } from '@/models/matchs';
+    import useMatch from '@/composables/useMatch.js';
     import { ref, onMounted } from 'vue';
 
     const map = ref([])
+
+    const { index, getPoints } = useMatch();
 
     onMounted(async () => {
         try {
@@ -43,4 +45,4 @@
         max-width: fit-content;
         margin:auto;
     }
-</style>
+</style>@/models/match
