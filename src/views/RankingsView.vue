@@ -1,14 +1,16 @@
 <script setup>
     import TeamLabel from '@/components/TeamLabel.vue';
     import NavBar from '@/components/NavBar.vue';
-    import { getPoints, Match, store } from '@/models/matchs';
+    import useMatch from '@/composables/useMatch.js';
     import { ref, onMounted } from 'vue';
 
     const map = ref([])
 
+    const { matchGetPoints } = useMatch();
+
     onMounted(async () => {
         try {
-            const data = await getPoints()
+            const data = await matchGetPoints()
             data.sort((a,b) => b.totalPoints - a.totalPoints)
 
             data.forEach((elem, index) => {
@@ -43,4 +45,4 @@
         max-width: fit-content;
         margin:auto;
     }
-</style>
+</style>@/models/match
