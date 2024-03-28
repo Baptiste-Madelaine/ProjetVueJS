@@ -1,10 +1,6 @@
 <script setup>
     import { ref } from "vue"
-<<<<<<< HEAD
-    import { signIn, signUp } from '../models/users'
-=======
-    import useUser from '@/composables/useUser.js'
->>>>>>> origin/dev
+    import  useUser  from '@/composables/useUser.js'
     import { useRouter } from 'vue-router';
     import { useUserStore } from '@/stores/user'
     import { storeToRefs } from 'pinia';
