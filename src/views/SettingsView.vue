@@ -1,7 +1,7 @@
 <script setup>
     import { ref } from 'vue';
     import NavBar from '@/components/NavBar.vue';
-    import { getTeam } from '../models/teams'
+    import useTeam from '../composables/useTeam'
     import { useRouter } from 'vue-router';
     import { useUserStore } from '@/stores/user'
     import { storeToRefs } from 'pinia';
@@ -18,7 +18,7 @@
     <div>
         <p> </p>
         <h1> "Team Name"</h1>
-        <input class="text-black p-1" type="text" placeholder="Email" v-model="email" required>
+        <input class="text-black p-1" type="text" placeholder="Team Name" v-model="email" required>
 
         <h1> Members </h1>
         <li v-for="item in items">

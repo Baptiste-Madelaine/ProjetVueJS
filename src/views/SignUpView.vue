@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from "vue"
-    import  useUser  from '@/composables/useUser.js'
+    import  { signUp, signIn }  from '../models/users.js'
     import { useRouter } from 'vue-router';
     import { useUserStore } from '@/stores/user'
     import { storeToRefs } from 'pinia';
@@ -10,7 +10,6 @@
     const { id, name} = storeToRefs(userStore);
     const { isLogged } = userStore;
 
-    const { signUp } = useUser();
 
     const route = useRouter()
 
