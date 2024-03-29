@@ -41,7 +41,6 @@ export async function updateMatchScore1($id,$score) {
         .from("matchs")
         .update({ team1_score: $score })
         .eq('id', $id)
-        .select()
         console.log(error,data);
     return data;
 }
@@ -51,7 +50,6 @@ export async function updateMatchScore2($id,$score) {
         .from("matchs")
         .update({ team2_score: $score })
         .eq('id', $id)
-        .select()
         console.log(error, data);
     return data;
 }

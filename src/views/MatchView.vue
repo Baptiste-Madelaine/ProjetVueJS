@@ -39,7 +39,7 @@ function goToCreateMatch() {
           }
       });
       const updateScore1 = async (evt) => {
-            let val = evt.target.value
+            let val = evt.target.value;
             //console.log(val);
             //console.log(evt.target.getAttribute("id"));
             //console.log(evt.target.getAttribute("name"));
@@ -81,10 +81,10 @@ function goToCreateMatch() {
                 {{ item[1] }}
             </template>
             <template v-slot:Score1>
-              <input name="score1" :placeholder=item[4] type="number" :id=item[6] @change="updateScore1(event)"/>
+              <input name="score1" :placeholder=item[4] type="number" :id=item[6] @change="updateScore1($event)"/>
             </template>
             <template v-slot:Score2>
-              <input name="score2" :placeholder=item[5] type="number" :id=item[6] @change="updateScore1(event)"/>
+              <input name="score2" :placeholder=item[5] type="number" :id=item[6] @change="updateScore1($event)"/>
             </template>
         </MatchComponent>
     </div>
