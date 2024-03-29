@@ -37,8 +37,6 @@ function sinscrire(){
   route.push({name: 'signup'})
 }
 function guestAccess(){
-  id.value = "";
-  name.value = "";
   route.push({name: 'rankings'})
 }
 </script>
