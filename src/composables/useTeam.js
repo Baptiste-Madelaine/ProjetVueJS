@@ -29,17 +29,25 @@ export default function useTeam() {
 
     async function teamGet(id) {
         const { supabase } = useSupabase();
-        const { data, error } = await supabase.from("teams").select().eq("id", id);
-
+        const { data, error } = await supabase.from("teams").select().eq("leader", id);
+        /*
         if (error) {
-            console.error("Erreur lors de la récupération de l'équipe " + id + " : " + error.message);
-            return;
+            console.error("Erreur lors de la récupération de l'équipe " + id + " : " + error);
         }
+        */
 
-        return (data.length > 0)
-            ? data[0]
-            : null;
+        return {data,error};
+    }
+    async function teamChangeName(id, nom){
+        const { supabase } = useSupabase();
+        const { data, error } = await supabase.from("teams").update({name: nom}).eq('leader', id);
+        return {data, error}
+    }
+    async function teamChangeMembers(id, members_){
+        const { supabase } = useSupabase();
+        const { data, error } = await supabase.from("teams").update({members: members_}).eq('leader', id);
+        return {data, error}
     }
 
-    return { teamStore, teamIndex, teamGet}
+    return { teamStore, teamIndex, teamGet, teamChangeName, teamChangeMembers}
 }
