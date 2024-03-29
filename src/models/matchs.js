@@ -24,15 +24,35 @@ export async function store(match) {
     }
 
     const { supabase } = useSupabase();
-    const { data } = await supabase.from("matchs").insert([match]);
+    const { data , error } = await supabase.from("matchs").insert([match]);
 
-    return data;
+    return [data,error];
 }
 
 export async function getMatch($id) {
     const { supabase } = useSupabase();
-    const { data, error } = await supabase.from("matchs").select().eq("id", $id).first();
+    const { data, error } = await supabase.from("matchs").select().eq("id", $id);
 
+    return data;
+}
+export async function updateMatchScore1($id,$score) {
+    const { supabase } = useSupabase();
+    const { data, error } = await supabase
+        .from("matchs")
+        .update({ team1_score: $score })
+        .eq('id', $id)
+        .select()
+        console.log(error,data);
+    return data;
+}
+export async function updateMatchScore2($id,$score) {
+    const { supabase } = useSupabase();
+    const { data, error } = await supabase
+        .from("matchs")
+        .update({ team2_score: $score })
+        .eq('id', $id)
+        .select()
+        console.log(error, data);
     return data;
 }
 
