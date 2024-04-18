@@ -27,13 +27,12 @@ async function seConnecter(){
     }else{
       id.value = data.user.id;
       name.value = data.user.email;
-      //TODO Redirect to the correct view after being logged
+      route.push({name: 'rankings'})
     }
   }
 }
 
 function sinscrire(){
-  
   route.push({name: 'signup'})
 }
 function guestAccess(){

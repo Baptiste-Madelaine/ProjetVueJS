@@ -21,14 +21,12 @@ export default function useUser() {
     async function signIn(email, password) {
         const { supabase } = useSupabase();
 
-        const { error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabase.auth.signInWithPassword({
             email: email,
             password: password
         });
 
-        if (error) {
-            console.error(`Erreur lors de la connexion au compte : ${error.message}`);
-        }
+        return {data, error}
     }
 
     async function signOut() {
